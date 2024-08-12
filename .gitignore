@@ -6,3 +6,4 @@ foobar.py
 /Temp
 /The_group
 /Online_mode/Temp/*
+!/Online_mode/Temp/readme.txt

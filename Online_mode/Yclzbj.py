@@ -5,7 +5,7 @@ import pprint
 
 def yclzbj(data: list):
     rb = WechatBot("https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=5e3b40e1-3e76-4a35-9481-bb46f584df59")
-    pic_path = "Temp"
+    pic_path = "Online_mode/Temp"
     pic_id = 0
     for dic in data:
         # 发送报文

@@ -9,8 +9,8 @@ from docxtpl import InlineImage
 
 def jljzlxd(data: list):
     rb = WechatBot("https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=5e3b40e1-3e76-4a35-9481-bb46f584df59")
-    pic_path = "Temp"
-    mode_path = "Mode/交流监造联系单.docx"
+    pic_path = "Online_mode/Temp"
+    mode_path = "Online_mode/Mode/交流监造联系单.docx"
     tpl = DocxTemplate(mode_path)
     for dic in data:
         clear_directory(pic_path)
