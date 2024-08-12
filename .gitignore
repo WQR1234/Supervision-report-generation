@@ -2,3 +2,7 @@ venv
 __pycache__/
 __pycache__
 .idea
+foobar.py
+/Temp
+/The_group
+/Online_mode/Temp/*
