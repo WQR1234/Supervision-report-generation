@@ -177,7 +177,7 @@ if __name__ == '__main__':
     bot.send_text(content="hello2", mentioned_list=["@all"], mentioned_mobile_list=["19966666666"])
     md = "测试<font color=\"warning\">test</font>"
     bot.send_markdown(content=md)
-    bot.send_picture(image_path=r"screen.png")
+    bot.send_picture(image_path=r"Online_mode\Temp\0.jpg")
     articles = [
         {
             "title": "端午节礼品领取",
@@ -187,5 +187,5 @@ if __name__ == '__main__':
         }
     ]
     bot.send_text_picture(articles=articles)
-    filepath = r"com.csv"
+    filepath = r"app.py"
     bot.send_file(media_id=bot.upload_file(filepath))

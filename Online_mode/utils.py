@@ -1,8 +1,7 @@
 import glob
 import requests
 import mimetypes
-from docxtpl import DocxTemplate
-from docxtpl import InlineImage
+from docxtpl import DocxTemplate, InlineImage
 import pprint
 import os
 from PIL import Image
@@ -57,7 +56,7 @@ def download_image(url, filename_without_extension, save_directory):
     """
     try:
         # 发送请求并获取响应
-        response = requests.get(url, stream=True)
+        response = requests.get(url, stream=True, timeout=5)
         response.raise_for_status()  # 检查请求是否成功
 
         # 确保保存目录存在

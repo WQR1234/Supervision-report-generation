@@ -1,9 +1,9 @@
-from .Yclzbj import yclzbj
-from .Jljzlxd import jljzlxd
+from .raw_material import raw_material
+from .contact_form import contact_form
 
 
 def classify(data, type):
     if type == "yclzbj":
-        yclzbj(data)
+        raw_material(data)
     elif type == "jljzlxd":
-        jljzlxd(data)
+        contact_form(data)

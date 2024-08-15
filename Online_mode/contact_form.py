@@ -1,13 +1,13 @@
 import os.path
 
-from .Send_message import WechatBot
-from .Public_f import download_image, clear_directory, is_url, compress_picture, formate_dic
+from .send_message import WechatBot
+from .utils import download_image, clear_directory, is_url, compress_picture, formate_dic
 import pprint
 from docxtpl import DocxTemplate
 from docxtpl import InlineImage
 
 
-def jljzlxd(data: list):
+def contact_form(data: list):
     rb = WechatBot("https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=5e3b40e1-3e76-4a35-9481-bb46f584df59")
     pic_path = "Online_mode/Temp"
     mode_path = "Online_mode/Mode/交流监造联系单.docx"
@@ -60,4 +60,4 @@ if __name__ == "__main__":
                         '=CCXzKqtsV7XzVsHtzqCkBNMzJAc%3D&response-cache-control=public%2Cmax-age%3D86400']
              }]
 
-    jljzlxd(data)
+    contact_form(data)

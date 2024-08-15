@@ -1,9 +1,9 @@
-from .Send_message import WechatBot
-from .Public_f import download_image, clear_directory
+from .send_message import WechatBot
+from .utils import download_image, clear_directory
 import pprint
 
 
-def yclzbj(data: list):
+def raw_material(data: list):
     rb = WechatBot("https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=5e3b40e1-3e76-4a35-9481-bb46f584df59")
     pic_path = "Online_mode/Temp"
     pic_id = 0
@@ -22,7 +22,8 @@ def yclzbj(data: list):
         for i in range(max(l1, l2)):
             if i < l1:
                 pic = download_image(dic["检查图片"][i], str(pic_id), pic_path)
-                rb.send_picture(pic)
+                if pic is not None:
+                    rb.send_picture(pic)
             if i < l2:
                 rb.send_text(dic["图片描述"][i])
 
@@ -55,4 +56,4 @@ if __name__ == "__main__":
              '尺寸测量：符合要求\n'
              '内腔检查：干净无异物'}]
     pprint.pprint(data)
-    yclzbj(data)
+    raw_material(data)
