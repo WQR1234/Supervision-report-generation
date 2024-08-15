@@ -1,5 +1,5 @@
-from Yclzbj import yclzbj
-from Jljzlxd import jljzlxd
+from .Yclzbj import yclzbj
+from .Jljzlxd import jljzlxd
 
 
 def classify(data, type):

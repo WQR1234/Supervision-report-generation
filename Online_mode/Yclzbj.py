@@ -1,5 +1,5 @@
-from Send_message import WechatBot
-from Public_f import download_image, clear_directory
+from .Send_message import WechatBot
+from .Public_f import download_image, clear_directory
 import pprint
 
 

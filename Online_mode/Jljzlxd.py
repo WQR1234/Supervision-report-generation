@@ -1,7 +1,7 @@
 import os.path
 
-from Send_message import WechatBot
-from Public_f import download_image, clear_directory, is_url, compress_picture, formate_dic
+from .Send_message import WechatBot
+from .Public_f import download_image, clear_directory, is_url, compress_picture, formate_dic
 import pprint
 from docxtpl import DocxTemplate
 from docxtpl import InlineImage
