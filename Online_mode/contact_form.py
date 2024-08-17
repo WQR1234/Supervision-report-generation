@@ -1,6 +1,6 @@
 import os.path
 
-from .send_message import WechatBot
+from .wechatbot import WechatBot
 from .utils import download_image, clear_directory, is_url, compress_picture, formate_dic
 import pprint
 from docxtpl import DocxTemplate

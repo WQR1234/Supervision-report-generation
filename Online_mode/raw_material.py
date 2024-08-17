@@ -1,4 +1,4 @@
-from .send_message import WechatBot
+from .wechatbot import WechatBot
 from .utils import download_image, clear_directory
 import pprint
 

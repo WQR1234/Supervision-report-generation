@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import base64
 import os
 
-from File_Generation import *
+# from File_Generation import *
 
 from Online_mode.raw_material import raw_material
 
@@ -19,7 +19,7 @@ def index():
         print(request.args)
     elif request.method == "POST":
         data = request.json
-        generate_file('The_group/交流监造联系单.docx', 'The_group/交流监造联系单-0.docx', data)
+        # generate_file('The_group/交流监造联系单.docx', 'The_group/交流监造联系单-0.docx', data)
         return jsonify(data)
     return jsonify(request.args)
 
