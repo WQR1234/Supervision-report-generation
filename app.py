@@ -14,7 +14,7 @@ UPLOAD_FOLDER = 'Online_mode/Temp'  # 确保该文件夹存在
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == "GET":
         print(request.args)
