@@ -136,12 +136,20 @@ def formate_dic(dic, pic_path, tpl, pic_id):
         else:
             # 格式化日期
             if isinstance(key, str) and '日期' in key:
-                try:
-                    date_value = datetime(1900, 1, 1) + timedelta(days=value)
-                    formatted_date = date_value.strftime('%Y年%m月%d日')  # 将日期格式化为yyyy年mm月dd日的字符串
-                    dic[key] = formatted_date  # 更新键值为格式化后的日期字符串
-                except ValueError:
-                    pass  # 忽略无效日期数字
+                if isinstance(value, int):
+                    try:
+                        date_value = datetime(1900, 1, 1) + timedelta(days=value)
+                        formatted_date = date_value.strftime('%Y年%m月%d日')  # 将日期格式化为yyyy年mm月dd日的字符串
+                        dic[key] = formatted_date  # 更新键值为格式化后的日期字符串
+                    except ValueError:
+                        pass  # 忽略无效日期数字
+                elif isinstance(value, str):
+                    try:
+                        date_object = datetime.strptime(value, "%Y/%m/%d")  
+                        formatted_date = date_object.strftime("%Y年%m月%d日")
+                        dic[key] = formatted_date  # 更新键值为格式化后的日期字符串
+                    except ValueError:
+                        pass  # 忽略无效日期数字
             # 格式化图片
             elif isinstance(key, str) and '图片' in key:
                 print(key, value)
