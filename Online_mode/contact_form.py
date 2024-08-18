@@ -7,13 +7,14 @@ from docxtpl import DocxTemplate
 from docxtpl import InlineImage
 
 
-def contact_form(data: list):
+def communication_supervision_contact_form(data: list):
+    """生成交流监造联系单"""
     rb = WechatBot("https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=5e3b40e1-3e76-4a35-9481-bb46f584df59")
     pic_path = "Online_mode/Temp"
     mode_path = "Online_mode/Mode/交流监造联系单.docx"
     tpl = DocxTemplate(mode_path)
     for dic in data:
-        clear_directory(pic_path)
+        
         if "图片信息0" in dic:
             l1 = len(dic["图片信息0"])
             if l1 % 2 == 1:
@@ -39,6 +40,8 @@ def contact_form(data: list):
         if f_id:
             rb.send_file(f_id)
 
+        clear_directory(pic_path)
+
 
 if __name__ == "__main__":
     data = [{'联系单信息':
@@ -55,9 +58,7 @@ if __name__ == "__main__":
                    '驻厂监造工程师': '任宏飞'
                    }],
              '图片描述0': ['内部检查'],
-             '图片信息0': 1 * ['https://weboffice-temporary.ks3-cn-beijing.wpscdn.cn/thumbnail/tqWDrdkabS1RuCGm1K7oprc_100.png'
-                        '?Expires=1723410000&KSSAccessKeyId=AKLTmoJhggaFT1CHuozGZqbC&Signature'
-                        '=CCXzKqtsV7XzVsHtzqCkBNMzJAc%3D&response-cache-control=public%2Cmax-age%3D86400']
+             '图片信息0': 1 * ['1723364692944.jpg']
              }]
 
-    contact_form(data)
+    communication_supervision_contact_form(data)

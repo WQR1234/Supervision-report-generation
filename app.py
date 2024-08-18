@@ -5,6 +5,7 @@ import os
 # from File_Generation import *
 
 from Online_mode.raw_material import raw_material
+from Online_mode.contact_form import communication_supervision_contact_form
 
 app = Flask(__name__)
 
@@ -28,9 +29,23 @@ def index():
 def origin_material():
     if request.method == "POST":
         data = request.json
-        raw_material(data)
-    
-    return ''
+        try:
+            raw_material(data)
+            return jsonify({'msg': 'success'}), 200
+        except Exception as e:
+            return jsonify({'error': str(e)}), 400  
+        
+
+@app.route('/contact-form', methods=['POST'])
+def contact_form():
+    if request.method == 'POST':
+        data = request.get_json()
+        try:
+            communication_supervision_contact_form(data)
+            return jsonify({'msg': 'success'}), 200
+        except Exception as e:
+            return jsonify({'error': str(e)}), 400
+        
 
 @app.route('/upload-image', methods=['POST'])  
 def upload_image():  
@@ -54,7 +69,7 @@ def upload_image():
         image_data = base64.b64decode(base64_image)  
         
         # 构建文件路径  
-        file_path = os.path.join(UPLOAD_FOLDER, image_data)  
+        file_path = os.path.join(UPLOAD_FOLDER, image_name)  
 
         # 保存图片到文件  
         with open(file_path, 'wb') as f:  
